@@ -1,15 +1,23 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { TestBed, async } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatAutocompleteModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, AutocompleteComponent
       ],
     }).compileComponents();
   }));
