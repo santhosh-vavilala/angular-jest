@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AutocompleteComponent } from './autocomplete.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 describe('AutocompleteComponent', () => {
   let component: AutocompleteComponent;
@@ -8,6 +12,13 @@ describe('AutocompleteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatAutocompleteModule,
+        ],
       declarations: [ AutocompleteComponent ]
     })
     .compileComponents();
