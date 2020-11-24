@@ -33,4 +33,14 @@ describe('AutocompleteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should pass', () => {
+    jest.useFakeTimers();
+    spyOn(component, 'skipLinkFocusHandler')
+    global.dispatchEvent(new Event('resize'));
+    jest.advanceTimersByTime(1000);
+    expect(component.skipLinkFocusHandler).toHaveBeenCalled();
+    expect(setTimeout).toHaveBeenCalled()
+    jest.useRealTimers();
+  });
 });
